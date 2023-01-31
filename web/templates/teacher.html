@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hệ thống hỗ trợ tìm kiếm đồ án</title>
+    </head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+    <body>
+        <table>
+            <tr>
+                <th>Họ và tên</th>
+                <td>{{ info['name'] }}</td>
+            </tr>
+            <tr>
+                <th>Chuyên ngành</th>
+                <td>{{ info['major'] }}</td>
+            </tr>
+            <tr>
+                <th>Bằng cấp</th>
+                <td>{{ info['degrees'] }}</td>
+            </tr>
+            <tr>
+                <th>Lĩnh vực nghiên cứu</th>
+                <td>{{ info['Fields'] }}</td>
+            </tr>
+            <tr>
+                <th>Số lượng bài báo khoa học</th>
+                <td>{{ info['NumberOfResearches'] }}</td>
+            </tr>
+            <tr>
+                <th>Số lượng giải thưởng</th>
+                <td>{{ info['NumberOfAwards'] }}</td>
+            </tr>
+          </table> 
+    </body>
+</html>

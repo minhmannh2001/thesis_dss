@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hệ thống hỗ trợ tìm kiếm đồ án</title>
+</head>
+<body>
+  <form action = "http://localhost:5000/result" method = "POST">
+    <label for="major">Chọn chuyên ngành:</label><br>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="major" id="major">
+      <option value="KHMT">Khoa học Máy tính</option>
+      <option value="KTMT">Kỹ Thuật Máy tính</option>
+      <option value="CNPM">Công nghệ Phần mềm</option>
+      <option value="TTMMT">Truyền thông và Mạng máy tính</option>
+      <option value="HTTT">Hệ thống Thông tin</option>
+    </select><br>
+    <label for="type_of_training">Chọn hệ đào tạo:</label><br>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="type_of_training" id="type_of_training">
+      <option value="Viet-Phap">Chương trình Việt Pháp</option>
+      <option value="ThSKH">Thạc sĩ Khoa học</option>
+      <option value="KSCQ">Kỹ sư chính quy</option>
+      <option value="ThSKT">Thạc sĩ Kĩ thuật</option>
+      <option value="SIE">Chương trình đào tạo liên kết quốc tế</option>
+      <option value="VB2">Văn bằng 2</option>
+      <option value="ĐATN">Đồ án tốt nghiệp</option>
+      <option value="CNKH">Cử nhân khoa học</option>
+    </select><br>
+    <label for="research_or_practice">Hướng của đồ án:</label><br>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="research_or_practice" id="research_or_practice">
+      <option value="research">Nghiên cứu</option>
+      <option value="practice">Thực nghiệm</option>
+    </select><br>
+    <label for="age">Bạn có quan tâm đến tuổi của giảng viên:</label><br>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="age" id="age">
+      <option value="yes">Có</option>
+      <option value="no">Không</option>
+    </select><br>
+    <label for="degree">Bạn có quan tâm đến trình độ của giảng viên:</label><br>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="degree" id="degree">
+      <option value="yes">Có</option>
+      <option value="no">Không</option>
+    </select><br>
+    <label for="award">Bạn có quan tâm đến thành tích của giảng viên:</label><br>
+    <select style="margin-top: 10px;" name="award" id="award">
+      <option value="yes">Có</option>
+      <option value="no">Không</option>
+    </select><br>
+
+    <input style="margin-top: 20px; font-size: large;" type="submit" value="Tìm kiếm">
+  </form>
+</body>
+</html> 
+
+
+

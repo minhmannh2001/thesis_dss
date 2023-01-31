@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hệ thống hỗ trợ tìm kiếm đồ án</title>
+    </head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+    <body>
+        <table>
+            <tr>
+                <th>Tên đề tài</th>
+                <th>Mô tả</th>
+                <th>Giáo viên hướng dẫn</th>
+                <th>Đồng hướng dẫn</th>
+            </tr>
+            {% for my_item in thesis_info %}
+            <tr>
+                <td>{{ my_item['title'] }}</td>
+                <td>{{ my_item['description'] }}</td>
+                <td><a href="/teacher/{{my_item['teacher_id']}}">{{ my_item['teacher_name'] }}</a></td>
+                <td>{{ my_item['coresearchers'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
