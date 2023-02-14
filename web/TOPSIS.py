@@ -32,8 +32,10 @@ def get_worst_solution(normalized_df):
     
     return worst_solution
 
-def search(query_result):
+def cal_weight(x):
+    return 1/3 - x/21.0
 
+def search(query_result):
     major_match = []
     for index, row in normalized_df.iterrows():
         if row['related_major'] == major_dict[query_result['major']]:
@@ -54,6 +56,14 @@ def search(query_result):
                 type_of_training_match.append(0)
     normalized_df['normalized_degree_attribute'] = type_of_training_match
     
+    normalized_df['normalized_major_attribute'] = normalized_df['normalized_major_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_major'])))
+    normalized_df['normalized_degree_attribute'] = normalized_df['normalized_degree_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_type_of_training'])))
+    normalized_df['normalized_no_coresearchers_attribute'] = normalized_df['normalized_no_coresearchers_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_research_or_practice'])))
+    normalized_df['normalized_degrees_point_attribute'] = normalized_df['normalized_degrees_point_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_degree'])))
+    normalized_df['normalized_age_attribute'] = normalized_df['normalized_age_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_age'])))
+    normalized_df['normalized_no_researches_attribute'] = normalized_df['normalized_no_researches_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_award'])))
+    normalized_df['normalized_no_awards_attribute'] = normalized_df['normalized_no_awards_attribute'].apply(lambda x: x*cal_weight(int(query_result['order_of_award'])))
+
     # normalized_df.drop(columns=['related_major', 'degree'], inplace=True)
 
     best_solution = get_best_solution(normalized_df.drop(columns=['related_major', 'degree']))

@@ -59,6 +59,7 @@ def result():
    if request.method == 'POST':
       result = request.form
       thesis_ids = search(result)
+      print(result)
       thesis_info = get_thesis_info(thesis_ids)
       print(thesis_info)
       return render_template("result.html", thesis_info = thesis_info)

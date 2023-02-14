@@ -12,7 +12,16 @@
       <option value="CNPM">Công nghệ Phần mềm</option>
       <option value="TTMMT">Truyền thông và Mạng máy tính</option>
       <option value="HTTT">Hệ thống Thông tin</option>
-    </select><br>
+    </select>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="order_of_major" id="order_of_major" onchange="changeSelected(event)">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <br>
     <label for="type_of_training">Chọn hệ đào tạo:</label><br>
     <select style="margin-top: 10px; margin-bottom: 10px;" name="type_of_training" id="type_of_training">
       <option value="Viet-Phap">Chương trình Việt Pháp</option>
@@ -23,30 +32,114 @@
       <option value="VB2">Văn bằng 2</option>
       <option value="ĐATN">Đồ án tốt nghiệp</option>
       <option value="CNKH">Cử nhân khoa học</option>
-    </select><br>
+    </select>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="order_of_type_of_training" id="order_of_type_of_training" onchange="changeSelected(event)">
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <br>
     <label for="research_or_practice">Hướng của đồ án:</label><br>
     <select style="margin-top: 10px; margin-bottom: 10px;" name="research_or_practice" id="research_or_practice">
       <option value="research">Nghiên cứu</option>
       <option value="practice">Thực nghiệm</option>
-    </select><br>
+    </select>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="order_of_research_or_practice" id="order_of_research_or_practice" onchange="changeSelected(event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3" selected>3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <br>
     <label for="age">Bạn có quan tâm đến tuổi của giảng viên:</label><br>
     <select style="margin-top: 10px; margin-bottom: 10px;" name="age" id="age">
       <option value="yes">Có</option>
       <option value="no">Không</option>
-    </select><br>
+    </select>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="order_of_age" id="order_of_age" onchange="changeSelected(event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4" selected>4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <br>
     <label for="degree">Bạn có quan tâm đến trình độ của giảng viên:</label><br>
     <select style="margin-top: 10px; margin-bottom: 10px;" name="degree" id="degree">
       <option value="yes">Có</option>
       <option value="no">Không</option>
-    </select><br>
+    </select>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="order_of_degree" id="order_of_degree" onchange="changeSelected(event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5" selected>5</option>
+      <option value="6">6</option>
+    </select>
+    <br>
     <label for="award">Bạn có quan tâm đến thành tích của giảng viên:</label><br>
     <select style="margin-top: 10px;" name="award" id="award">
       <option value="yes">Có</option>
       <option value="no">Không</option>
-    </select><br>
+    </select>
+    <select style="margin-top: 10px; margin-bottom: 10px;" name="order_of_award" id="order_of_award" onchange="changeSelected(event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6" selected>6</option>
+    </select>
+    <br>
 
     <input style="margin-top: 20px; font-size: large;" type="submit" value="Tìm kiếm">
   </form>
+  <script>
+    const changeSelected = (e) => {
+      value_to_change = e.target.value;
+      let missing_value_dict = {
+        '1': true,
+        '2': true,
+        '3': true,
+        '4': true,
+        '5': true,
+        '6': true
+      }
+      let list_selects = ['order_of_major', 'order_of_type_of_training', 'order_of_research_or_practice', 'order_of_age', 'order_of_degree', 'order_of_award']
+      const select_major = document.getElementById('order_of_major');
+      missing_value_dict[select_major.value] = false
+      const select_type_of_training = document.getElementById('order_of_type_of_training');
+      missing_value_dict[select_type_of_training.value] = false
+      const select_research_or_practice = document.getElementById('order_of_research_or_practice');
+      missing_value_dict[select_research_or_practice.value] = false
+      const select_age = document.getElementById('order_of_age');
+      missing_value_dict[select_age.value] = false
+      const select_degree = document.getElementById('order_of_degree');
+      missing_value_dict[select_degree.value] = false
+      const select_award = document.getElementById('order_of_award');
+      missing_value_dict[select_award.value] = false
+      missing_value = 0
+      for (let i = 1; i <= 6; i++) {
+        if (missing_value_dict[i] == true) {
+          missing_value = i;
+        }
+      } 
+      for (let i = 0; i < list_selects.length; i++) {
+        if (list_selects[i] != e.target.id) {
+            if (document.getElementById(list_selects[i]).value == value_to_change) {
+              document.getElementById(list_selects[i]).value = missing_value;
+            }
+        }
+      } 
+    };
+  </script>
 </body>
 </html> 
 
